@@ -14,35 +14,15 @@
 	</div>
 </div>
 <div id="right" style="width:400px; background:url(commd/round-shadow.png) no-repeat bottom center;">
+	<img id="nxt" src="themes/next.png">
+	<img id="prev" style=""src="themes/prev.png">
 <div  class="heading"><p align="right" style=" font-size:14px; margin:0; padding:0">Conferences and Seminars</p></div>
 <div id="news" style="padding-left:10px; background:#e7e3e3;">
 
-<?php
 
-$db_select = mysql_select_db(DB_NAME,$connection);
-if (!$db_select) {
-	die("Database selection failed: " . mysql_error());
-}
-$my_message="";
 
-$query="SELECT * FROM `announcements` WHERE `newstype`='C' and (expiry_date - CURRENT_DATE)>=0 order by expiry_date";
+					<p id="newscontp"></p>	
 
-$result=mysql_query($query);
-while($row = mysql_fetch_array($result))
-  {
-  $topic = $row["topic"];
-	$Duration = $row["Duration"];
-	$url=rtrim($row["more_info_url"]);
-	if($url!="") {
-		$link_tab = "<A HREF=".$url." target='_blank' class=upperscroll>";
-	} else { 
-		$link_tab = "<A HREF=/news/showannouncedescr.php?newsid=".$row["slno"]." target='_blank' class=upperscroll>";
-	}
-	$my_message =$my_message.$link_tab.$topic."</a> <br/>".$Duration."<br/><br/>";
-	}	
-	?>
-<p>
-<?php echo $my_message; ?></p>
 </div>
 </div>
 </div>
@@ -71,7 +51,7 @@ Job Openings
 
 <ul class="tabs">
   <li><a href="#tab1">Faculty Positions</a></li>
-  <li><a href="#tab2">Temporary Assignments</a></li>
+  <li><a href="#tab2" id="tmpassgn">Temporary Assignments</a></li>
   <li style="border-right:none;"><a href="#tab3">Non-teaching Positions</a></li>
 
 </ul>
@@ -91,41 +71,19 @@ Job Openings
 
 <!---Place for content-->
 </div>
+
 <div id="tab2" class="tab_content">
 
-<?php
-	
-	$link=@mysql_select_db("profiles") or die("Could not connect to database");
-	$query=mysql_query("SELECT * FROM sric_jobs WHERE ((last_date-curdate())>=0) ORDER BY last_date ASC");
-	$num_rows=@mysql_num_rows($query);
+<img id="jnxt" src="themes/next.png">
+<img id="jprev" style=""src="themes/prev.png">
 
-?>
-<TABLE width='100%'>
-  <TR bgcolor=silver>
-    <TD width=70%><B>Temporary Position(s)</B></td><td width=14%><B>Number of <BR>Vacancies</B></td><td width=16%><B>Last Date of <BR>Application</B></td>
-<?php
-while($row=@mysql_fetch_array($query)) {
-$serial=$row["serial_no"];
-$post_name=$row["temp_post"];
-$coordinator=$row["coordinator"];
-$vacancies=$row["no_of_vacancies"];
-$last_date=$row["last_date"];
-$date_part=explode("-", $last_date);
-$made_date = date("d M Y", mktime (0,0,0, $date_part[1] , $date_part[2], $date_part[0]));
-
-?>
-
-
-
- <tr><td><a href="/topfiles/sric_job_details.php?serial=<?php echo $serial; ?>"><?php echo $post_name  ?></a><BR>&nbsp;&nbsp;&nbsp;&nbsp;<FONT SIZE="1" COLOR="brown">(PI: <?php echo  $coordinator ?>)</FONT> </td>   <td align=center><?php echo  $vacancies ?></td><td><?php echo $made_date ?></td>
-<?php } ?>
-  </TABLE>
-
-
- 
+<TABLE width='100%' id="tempjobtbl">
+</TABLE>
 
 <!---Place for content-->
 </div>
+
+
 <div id="tab3" class="tab_content">
 <a href="http://iitkgp.ac.in/downloads/jpo_padmavati.pdf" target="_blank">Junior Project Officer (JPO) </a>
 
@@ -147,18 +105,18 @@ Campus Highlights
 </div>
 <?php
 mysql_selectdb("profiles");
-$ord="select * from newsboard where newstype='students' order by date1 desc limit 1";
-$ord1="select * from newsboard where newstype='faculty' order by date1 desc limit 1";
-$ord2="select * from newsboard where newstype='alumni' order by date1 desc limit 1";
-$ord3="select * from newsboard where newstype='newsreleases' order by date1 desc limit 1";
-$ord4="select * from newsboard where newstype='iits' order by date1 desc limit 1";
+$ord = "select * from newsboard where newstype='students' order by date1 desc limit 1";
+$ord1 = "select * from newsboard where newstype='faculty' order by date1 desc limit 1";
+$ord2 = "select * from newsboard where newstype='alumni' order by date1 desc limit 1";
+$ord3 = "select * from newsboard where newstype='newsreleases' order by date1 desc limit 1";
+$ord4 = "select * from newsboard where newstype='iits' order by date1 desc limit 1";
 
-$res=mysql_query($ord);
-$res1=mysql_query($ord1);
-$res2=mysql_query($ord2);
-$res3=mysql_query($ord3);
-$res4=mysql_query($ord4);
-$row=mysql_fetch_array($res);
+$res = mysql_query($ord);
+$res1 = mysql_query($ord1);
+$res2 = mysql_query($ord2);
+$res3 = mysql_query($ord3);
+$res4 = mysql_query($ord4);
+$row = mysql_fetch_array($res);
 ?>
 <div class="history">
 <img src="commd/icon1.jpg"/>
@@ -171,16 +129,18 @@ $row=mysql_fetch_array($res);
 <img src="commd/icon2.jpg"/>
 </div>
 <div class="description">
-<?php $row=mysql_fetch_array($res1);
-echo $row['heading'];?>
+<?php $row = mysql_fetch_array($res1);
+	echo $row['heading'];
+?>
 </div>
 <div style="clear:both"></div>
 <div class="history">
 <img src="commd/icon3.jpg"/>
 </div>
 <div class="description">
-<?php $row=mysql_fetch_array($res4);
-echo $row['heading'];?>
+<?php $row = mysql_fetch_array($res4);
+	echo $row['heading'];
+?>
 </div>
 <div style="clear:both"></div>
 <!--<?php/*
@@ -315,11 +275,11 @@ View all events ->
 <div class='heading' style="margin-bottom:10px">
 Short Term Programmes
 </div>
-<?php 
-	$link=@mysql_select_db("profiles") or die("Could not connect to database");
+<?php
+	$link = @mysql_select_db("profiles") or die("Could not connect to database");
 	mysql_error();
-	$query=mysql_query("SELECT * FROM announcements WHERE ((expiry_date-curdate())>=0) AND general like 'Y%' AND newstype='S' ORDER BY expiry_date");
-	$num_rows=@mysql_num_rows($query);
+	$query = mysql_query("SELECT * FROM announcements WHERE ((expiry_date-curdate())>=0) AND general like 'Y%' AND newstype='S' ORDER BY expiry_date");
+	$num_rows = @mysql_num_rows($query);
 ?><div id="stp">
 <table>
 <?php
@@ -328,56 +288,72 @@ Short Term Programmes
 	if($url!="") {
 		?>
 		<TR width=5%>
-		<TD width=70% style="text-align:left"><A HREF="<?php echo $url; ?>" class="mainlinks" target="_blank"><?php echo $row["topic"];?></A></td><td width=30% valign=top style="text-align:left"><FONT size=1px COLOR="#555555"><?php echo $row["Duration"]; ?></FONT>
+		<TD width=70% style="text-align:left"><A HREF="<?php echo $url; ?>" class="mainlinks" target="_blank"><?php echo $row["topic"]; ?></A></td><td width=30% valign=top style="text-align:left"><FONT size=1px COLOR="#555555"><?php echo $row["Duration"]; ?></FONT>
 		</td></TR>
 	<?php
-	} else { ?>
+	} else {
+ ?>
 	<TR> 
 	<TD width=70% style="text-align:left"><A HREF="/news/showannouncedescr.php?newsid=<?php echo $row["slno"]; ?>" class="mainlinks"><?php echo $row["topic"]; ?></A></td><td width=30% valign=top style="text-align:left"><FONT size=1px COLOR="#555555"><?php echo $row["Duration"]; ?></FONT>
-	</TD></TR><?php } }?>
+	</TD></TR><?php } } ?>
 	</Table></div>
 </div>
 
 </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function() {
+	$(document).ready(function() {
 
-	//When page loads...
-	$(".tab_content").hide(); //Hide all content
-	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
-	$(".tab_content:first").show(); //Show first tab content
+		//When page loads...
+		$(".tab_content").hide();
+		//Hide all content
+		$("ul.tabs li:first").addClass("active").show();
+		//Activate first tab
+		$(".tab_content:first").show();
+		//Show first tab content
 
-	//On Click Event
-	$("ul.tabs li").click(function() {
+		//On Click Event
+		$("ul.tabs li").click(function() {
 
-		$("ul.tabs li").removeClass("active"); //Remove any "active" class
-		$(this).addClass("active"); //Add "active" class to selected tab
-		$(".tab_content").hide(); //Hide all tab content
+			$("ul.tabs li").removeClass("active");
+			//Remove any "active" class
+			$(this).addClass("active");
+			//Add "active" class to selected tab
+			$(".tab_content").hide();
+			//Hide all tab content
 
-		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-		$(activeTab).fadeIn(); //Fade in the active ID content
-		return false;
-	});
-	//another click event
-	//When page loads...
-	$(".tab_content1").hide(); //Hide all content
-	$("ul.tabs1 li:first").addClass("active").show(); //Activate first tab
-	$(".tab_content1:first").show(); //Show first tab content
+			var activeTab = $(this).find("a").attr("href");
+			//Find the href attribute value to identify the active tab + content
+			$(activeTab).fadeIn();
+			//Fade in the active ID content
+			return false;
+		});
+		//another click event
+		//When page loads...
+		$(".tab_content1").hide();
+		//Hide all content
+		$("ul.tabs1 li:first").addClass("active").show();
+		//Activate first tab
+		$(".tab_content1:first").show();
+		//Show first tab content
 
-	//On Click Event
-	$("ul.tabs1 li").click(function() {
+		//On Click Event
+		$("ul.tabs1 li").click(function() {
 
-		$("ul.tabs1 li").removeClass("active"); //Remove any "active" class
-		$(this).addClass("active"); //Add "active" class to selected tab
-		$(".tab_content1").hide(); //Hide all tab content
+			$("ul.tabs1 li").removeClass("active");
+			//Remove any "active" class
+			$(this).addClass("active");
+			//Add "active" class to selected tab
+			$(".tab_content1").hide();
+			//Hide all tab content
 
-		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-		$(activeTab).fadeIn(); //Fade in the active ID content
-		return false;
-	});
-	
+			var activeTab = $(this).find("a").attr("href");
+			//Find the href attribute value to identify the active tab + content
+			$(activeTab).fadeIn();
+			//Fade in the active ID content
+			return false;
+		});
 
-});
+	}); 
 </script>
 <?php include("commd/footer.php") ?>

@@ -551,8 +551,6 @@ color:white;}
 ul.linkfooter li a:hover{color:#2b84ce;}
 
 
-// NEW CSS
-
 #newsrow
 {
 	z-index: auto;
@@ -570,12 +568,12 @@ ul.linkfooter li a:hover{color:#2b84ce;}
 
 #nxt
 {
-position:absolute; width:50px; left:1012px ; top:120px
+position:absolute; width:50px; left:1012px ; top:210px
 }
 
 #jnxt
 {
-position:absolute; width:50px; left:382px ; top:220px
+position:absolute; width:50px; left:382px ; top:205px
 }
 
 
@@ -583,17 +581,17 @@ position:absolute; width:50px; left:382px ; top:220px
 {
 	cursor: hand;
 	width: 58px;
-	left:1008px ; top:116px;
+	left:1008px ; top:206px;
 	
 }
 
 #prev
 {
-position:absolute; width:50px; left:590px ; top:120px
+position:absolute; width:50px; left:590px ; top:210px
 }
 #jprev
 {
-position:absolute; width:50px; left:2px ; top:220px
+position:absolute; width:50px; left:2px ; top:205px
 }
 
 #prev:hover
@@ -601,7 +599,7 @@ position:absolute; width:50px; left:2px ; top:220px
 	cursor: hand;
 	width: 58px;
 	left: 586px;
-	top: 116px;
+	top: 206px;
 }
 
 #searchresults
