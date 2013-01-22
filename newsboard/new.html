@@ -1,0 +1,33 @@
+<html>
+<?php include("header.php")?>
+	
+	
+
+	<div id="upperbox">
+	
+	<script src="javascript/jquery.min.js"></script>
+	<script src="javascript/modal.js"></script>
+	
+	<a id="howdy" href="#">Howdy</a>
+	
+	<div id="overlay" style="display: none; "></div><div id="modal" style="width: auto; height: auto; top: 90.5px; left: 563.5px; display: none; "><div id="content"></div><a id="close" href="#">close</a></div>
+	
+	</div><br>
+	
+	<div id="menunews">
+	<a href="#" onclick="belowdata('students')">Students</a>
+	<a href="#" onclick="belowdata('faculty')">Faculty</a>
+	<a href="#" onclick="belowdata('alumni')">Alumni</a>
+	<a href="#" onclick="belowdata('newsreleases')">New Releases</a>
+	<a href="#" onclick="belowdata('iits')" style="border-right:none;">Campus News</a>
+	
+	</div><br>
+
+	<div id="datahold">
+	
+	</div>
+<?php
+include("footer.php");
+?>
+
+</html>

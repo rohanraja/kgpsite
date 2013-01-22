@@ -1,0 +1,189 @@
+<html><head><script src="safari-extension://com.wondershare.safari.allmytube-NHUBVJKX59/639b1615/analysismodule/website_extract.js"></script><script src="safari-extension://com.wondershare.safari.allmytube-NHUBVJKX59/639b1615/mytubefunctions.js"></script><script src="safari-extension://com.wondershare.safari.allmytube-NHUBVJKX59/639b1615/functions.js"></script>
+		<meta charset="utf-8">
+		<title>jQuery Modal Demo</title>
+		<style>
+			* {
+				margin:0; 
+				padding:0;
+			}
+
+			#overlay {
+				position:fixed; 
+				top:0;
+				left:0;
+				width:100%;
+				height:100%;
+				background:#000;
+				opacity:0.5;
+				filter:alpha(opacity=50);
+			}
+
+			#modal {
+				position:absolute;
+				background:url(tint20.png) 0 0 repeat;
+				background:rgba(0,0,0,0.2);
+				//border-radius:14px;
+				//overflow-y:scroll;
+				//max-height: 20px;
+				width: 100px;
+				padding:8px;
+			}
+
+			#content {
+				//border-radius:8px;
+				background:#fff;
+				overflow-y:scroll;
+				max-height: 100px;
+				padding:20px;
+			}
+
+			#close {
+				position:absolute;
+				background:url("http://www.jacklmoore.com/demo/modal/close.png") 0 0 no-repeat;
+				width:24px;
+				height:27px;
+				display:block;
+				text-indent:-9999px;
+				top:-7px;
+				right:-7px;
+			}
+		</style>
+		<script src="javascript/jquery.min.js"></script>
+		<script>
+			var modal = (function(){
+				var 
+				method = {},
+				$overlay,
+				$modal,
+				$content,
+				$close;
+
+				// Center the modal in the viewport
+				method.center = function () {
+					var top, left;
+
+					top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
+					left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+
+					$modal.css({
+						top:top + $(window).scrollTop(), 
+						left:left + $(window).scrollLeft()
+					});
+				};
+
+				// Open the modal
+				method.open = function (settings) {
+					$content.empty().append(settings.content);
+
+					$modal.css({
+						width: settings.width || 'auto', 
+						height: settings.height || 'auto'
+					});
+
+					method.center();
+					$(window).bind('resize.modal', method.center);
+					$modal.show();
+					$overlay.show();
+				};
+
+				// Close the modal
+				method.close = function () {
+					$modal.hide();
+					$overlay.hide();
+					$content.empty();
+					$(window).unbind('resize.modal');
+				};
+
+				// Generate the HTML and add it to the document
+				$overlay = $('<div id="overlay"></div>');
+				$modal = $('<div id="modal"></div>');
+				$content = $('<div id="content"></div>');
+				$close = $('<a id="close" href="#">close</a>');
+
+				$modal.hide();
+				$overlay.hide();
+				$modal.append($content, $close);
+
+				$(document).ready(function(){
+					$('body').append($overlay, $modal);						
+				});
+
+				$close.click(function(e){
+					e.preventDefault();
+					method.close();
+				});
+
+				return method;
+			}());
+
+			// Wait until the DOM has loaded before querying the document
+			$(document).ready(function(){
+
+				$.get('ajax.html', function(data){
+					modal.open({content: data});
+				});
+
+				$('a#howdy').click(function(e){
+					modal.open({content: "<b>hi, </b>Hoasdadaadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it goisadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it goisadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it daadsadasdws it going?"});
+					e.preventDefault();
+				});
+			});
+		</script>
+	<style type="text/css"></style></head>
+	<body>
+		<a id="howdy" href="#">Howdy</a>
+
+<div id="overlay" style="display: none; "></div><div id="modal" style="width: auto; height: auto; top: 90.5px; left: 563.5px; display: none; "><div id="content"></div><a id="close" href="#">close</a></div>
+	
+	
+	
+	
+	
+	<div class="cont1"><div id="date">Aug<br>26</div><p>National Students' Space Challenge</p><div id="slide" style="height: auto; "><div id="more1"><img src="css/more2.gif" onclick="toanimate(1);"></div><p>National Students' Space Challenge is India's one and only space science and engineering competition. It is held every year at IIT Kharagpur by Space Technology Students' Society (spAts) in association with Indian Space Research Organisation (ISRO). Are you a space enthusiast? Looking for a first-hand experience at solving some of the real-time challenges faced by engineers all over the world? Just want to have a good time learning stuff about space technology and catching up on astronomy? Then, NSSC is just the thing for you!
+	
+	*Competitions:
+	</p><li> Water Rocket Design Competition (Lift-Off) http://www.nssc.spats.in/event_6.php </li>
+	<li> Robotic Arm Design Competition (Armdroid) http://www.nssc.spats.in/event_2.php</li> 
+	<li> Paper Presentation on Space Defence System (D-Space) http://www.nssc.spats.in/event_1.php </li>
+	<li>Underwater Robotics (Dock-It) http://www.nssc.spats.in/event_4.php </li>
+	<li>Space Elevator Implementation (Ski-Trek)http://www.nssc.spats.in/event_3.php</li>
+	
+	<li>Online and On-the-spot eventshttp://www.nssc.spats.in/event_5.php</li>
+	
+	<li>Workshopshttp://www.nssc.spats.in/amateur.php</li>
+	
+	<li>Astrophotographyhttp://www.nssc.spats.in/astrophoto.php</li>
+	
+	<li>Visual and Amateur Astronomyhttp://www.nssc.spats.in/register.php
+	</li>
+	<li>Ornithopterhttp://www.nssc.spats.in/aerotrix.php
+	</li>
+	<li>Guest Lectureshttp://www.nssc.spats.in/guest.php</li>
+	
+	<li>Exhibitionshttp://www.nssc.spats.in/exhibitions.php
+	
+	Register:http://www.nssc.spats.in/register.php
+	</li>
+	Check the website for further details.
+	<br>
+	http://www.nssc.in<br>
+	
+	Connect with Us:
+	<br>Event Facebook Page: <br>http://www.facebook.com/NSSC2012
+	<br>
+	Cash rewards and prizes worth more than Rs. 2,00,000 to be won!!!
+	
+	Be a part of the excitement!!
+	
+	
+	Contact Details:
+	<br>
+	Abhinav Gupta
+	Head, National Students' Space Challenge,2012
+	<br>
+	Contact no:
+	(+91)7797326832
+	<br>
+	abhinav@spats.in<p></p></div></div>
+	
+</body></html>
