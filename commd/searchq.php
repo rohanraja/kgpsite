@@ -36,7 +36,9 @@ for ($i=1; $i<count($keywords); $i++) {
 	
 }
 	//$query="SELECT * FROM `coursesdb` WHERE title LIKE '%$q%' OR htmlsyll LIKE '%$q%' ";
-	
+
+$query = $query." LIMIT 15";	
+
 $result=mysql_query($query);
 
 

@@ -136,6 +136,10 @@ $(document).ready(function() {
 		
 		$('#searchresults').css('display', 'block');
 		
+		if(!this.value)
+				$('#searchresults').css('display', 'none');
+
+		
 		
 		
 	});
@@ -161,6 +165,9 @@ function searchquery(searchq)
 {
 	
 //	alert(searchq);
+
+	if(searchq)
+		$('#searchresults').css('display', 'block');
 
 	$.get('commd/searchq.php?q='+ searchq, function(data) {
 		
