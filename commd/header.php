@@ -11,6 +11,7 @@
 <script src="commd/slimScroll.min.js"></script>
 <script src="commd/jquery.nivo.slider.pack.js"></script>
 <script src="commd/jquery.nivo.slider.pack.js"></script>
+<script src="commd/ajaxstuff.js"></script>
 <link rel="stylesheet" type="text/css" href="fonts/stylesheet.css"/>
 <link rel="stylesheet" type="text/css" href="commd/stylesheet.css"/>
 <!--[if gte IE 6]>
@@ -57,11 +58,14 @@ $(function(){
 	<a href="http://www.iitkgp.ac.in"><div id='logo'>
 	</div></a>
 	<div id="searchwrapper"><form  name="search" action="http://iitkgp.ac.in/search/main_search.php">
-	<input type="text" class="searchbox" name="search_string" value=""  />
+	<input id="sbox" autocomplete="off" type="text" class="searchbox" name="search_string" placeholder="Search.. like placement, ERP" onKeyUp="searchquery(this.value)" value=""  />
     <button type="submit" class="searchbox_submit">
     <img src="commd/pointer-right.png"></img>
     </button>
     </form>
+    					<div id="searchresults" style="position:absolute;top:28px;left:9px; text-align: center;  width:204px; background-color: white; font-size: 14px; display: none; z-index: 1">
+    					</div>
+    
     </div>
 	</div>
 </div>
