@@ -27,7 +27,7 @@ $(document).ready(function() {
 		
 		$('#newscontp').fadeOut('fast', function() {
 			
-			$.get('getannouncements.php?count='+ anncount, function(data) {
+			$.get('commd/getannouncements.php?count='+ anncount, function(data) {
 				
 				  if(data!="")
 				 { 	$('#newscontp').html(data);
@@ -59,7 +59,7 @@ $(document).ready(function() {
 			
 			$('#newscontp').fadeOut('fast', function() {
 			
-			$.get('getannouncements.php?count='+ anncount, function(data) {
+			$.get('commd/getannouncements.php?count='+ anncount, function(data) {
 				
 				  $('#newscontp').html(data);
 				  $('#newscontp').fadeIn('fast',function(){});
@@ -81,7 +81,7 @@ $(document).ready(function() {
 		
 		$('#tempjobtbl').fadeOut('fast', function() {
 			
-			$.get('gettempjobs.php?count='+ jcount, function(data) {
+			$.get('commd/gettempjobs.php?count='+ jcount, function(data) {
 				
 				  if(data!="")
 				 { 	$('#tempjobtbl').html(data);
@@ -113,7 +113,7 @@ $(document).ready(function() {
 			
 			$('#tempjobtbl').fadeOut('fast', function() {
 			
-			$.get('gettempjobs.php?count='+ jcount, function(data) {
+			$.get('commd/gettempjobs.php?count='+ jcount, function(data) {
 				
 				  $('#tempjobtbl').html(data);
 				  $('#tempjobtbl').fadeIn('fast',function(){});

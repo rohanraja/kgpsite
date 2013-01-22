@@ -109,9 +109,12 @@ position:absolute;
 top:4px;
 left:9px;
 width:216px;
-height:23px;
+height:30px;
 font-family:robotoregular;
 text-align:center;
+border-radius:5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
 }
  
 .searchbox_submit {
@@ -120,8 +123,11 @@ background-color:#9acccd;
 position:absolute; 
 top:4px;
 left:215px;
-width:23px;
-height:23px;
+width:30px;
+height:30px;
+border-radius:5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
 }
 
 #accordion-menu-1 {
@@ -598,9 +604,20 @@ position:absolute; width:50px; left:2px ; top:220px
 	top: 116px;
 }
 
+#searchresults
+{
+	border-radius:5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+}
+
 #searchresults div
 {
 	border : 1px solid;
+		border-radius:5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+	
 }
 #searchresults div:hover
 {

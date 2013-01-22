@@ -63,7 +63,7 @@ $(function(){
     <img src="commd/pointer-right.png"></img>
     </button>
     </form>
-    					<div id="searchresults" style="position:absolute;top:28px;left:9px; text-align: center;  width:204px; background-color: white; font-size: 14px; display: none; z-index: 1">
+    					<div id="searchresults" style="position:absolute;top:35px;left:9px; text-align: center;  width:236px; background-color: white; font-size: 14px; display: none; z-index: 1">
     					</div>
     
     </div>
