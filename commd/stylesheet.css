@@ -626,3 +626,11 @@ position:absolute; width:50px; left:2px ; top:205px
 	max-height : 200px;
 	z-index: 1;
 }
+
+#searchl
+{
+	position: absolute;
+	top: 24px;
+	left: 640px;
+	display: none;
+}

@@ -163,18 +163,31 @@ $(document).ready(function() {
 
 function searchquery(searchq)
 {
+	$('#searchl').css('display', 'block');
 	
 //	alert(searchq);
 
 	if(searchq)
+	{
 		$('#searchresults').css('display', 'block');
+		
+		
 
-	$.get('commd/searchq.php?q='+ searchq, function(data) {
 		
+	}
+
+	$.ajax({
+		url: "commd/searchq.php?q="+searchq,
+		type: "GET",
+		async: true,
+		success: function(data) {
 		
+		$('#searchl').css('display', 'none');
 		$('#searchresults').html(data);
+	
+
 		
-	});
+	}});
 	
 }
 

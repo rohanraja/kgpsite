@@ -50,7 +50,12 @@ while ($row = mysql_fetch_array($result)) {
 	//print $row["title"];
 	//print '<br>';
 	
-	$output = $output.$part1.$row["href"].$part2.$row["title"].$part3;
+	if($row["href"])
+		$href = $row["href"].$part2;
+	else
+		$href = "#'><div>" ;
+	
+	$output = $output.$part1.$href.$row["title"].$part3;
 	
 }
 
@@ -58,6 +63,7 @@ if($q=="")
 	$output = "";
 
 //sleep(1);
+
 
 echo $output;
 	

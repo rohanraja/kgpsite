@@ -57,6 +57,7 @@ $(function(){
 	<div id="contents">
 	<a href="http://www.iitkgp.ac.in"><div id='logo'>
 	</div></a>
+	<img src="themes/searchl.gif" id="searchl">
 	<div id="searchwrapper"><form  name="search" action="http://iitkgp.ac.in/search/main_search.php">
 	<input id="sbox" autocomplete="off" type="text" class="searchbox" name="search_string" placeholder="Search.. like placement, ERP" onKeyUp="searchquery(this.value)" value=""  />
     <button type="submit" class="searchbox_submit">
