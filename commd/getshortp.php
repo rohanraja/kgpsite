@@ -13,7 +13,7 @@ $db_select = mysql_select_db(DB_NAME,$connection);
 if (!$db_select) {
 	die("Database selection failed: " . mysql_error());
 }
-$query="SELECT * FROM `announcements` WHERE (`newstype`='S' OR `newstype`='C')  order by expiry_date limit $startindex, $maxtakeoutrows";
+$query="SELECT * FROM `announcements` WHERE (`newstype`='S')  order by expiry_date limit $startindex, $maxtakeoutrows";
 
 $result=mysql_query($query);
 

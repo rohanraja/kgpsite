@@ -272,31 +272,16 @@ View all events ->
 </div>
 <div id="middle">
 <div class='category' style="background:none;" >
+	<img id="snxt" src="themes/next.png">
+	<img id="sprev" style=""src="themes/prev.png">
 <div class='heading' style="margin-bottom:10px">
 Short Term Programmes
+
 </div>
-<?php
-	$link = @mysql_select_db("profiles") or die("Could not connect to database");
-	mysql_error();
-	$query = mysql_query("SELECT * FROM announcements WHERE ((expiry_date-curdate())>=0) AND general like 'Y%' AND newstype='S' ORDER BY expiry_date");
-	$num_rows = @mysql_num_rows($query);
-?><div id="stp">
-<table>
-<?php
-	while($row=@mysql_fetch_array($query)) {
-	$url=rtrim($row["more_info_url"]);
-	if($url!="") {
-		?>
-		<TR width=5%>
-		<TD width=70% style="text-align:left"><A HREF="<?php echo $url; ?>" class="mainlinks" target="_blank"><?php echo $row["topic"]; ?></A></td><td width=30% valign=top style="text-align:left"><FONT size=1px COLOR="#555555"><?php echo $row["Duration"]; ?></FONT>
-		</td></TR>
-	<?php
-	} else {
- ?>
-	<TR> 
-	<TD width=70% style="text-align:left"><A HREF="/news/showannouncedescr.php?newsid=<?php echo $row["slno"]; ?>" class="mainlinks"><?php echo $row["topic"]; ?></A></td><td width=30% valign=top style="text-align:left"><FONT size=1px COLOR="#555555"><?php echo $row["Duration"]; ?></FONT>
-	</TD></TR><?php } } ?>
-	</Table></div>
+
+<p id="shortp">
+</p>
+
 </div>
 
 </div>

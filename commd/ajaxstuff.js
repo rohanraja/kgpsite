@@ -6,6 +6,7 @@ $(document).ready(function() {
 	
 	var anncount = 0;
 	var jcount = -1;
+	var scount = 0;
 
 	$('#tmpassgn').click(function(){
 		$("#jnxt").click();
@@ -15,6 +16,13 @@ $(document).ready(function() {
 	$.get('commd/getannouncements.php?count=0', function(data) {
 		
 		  $('#newscontp').html(data);
+		 // alert(data);
+	});
+	
+	
+	$.get('commd/getshortp.php?count=0', function(data) {
+		
+		  $('#shortp').html(data);
 		 // alert(data);
 	});
 	
@@ -97,9 +105,10 @@ $(document).ready(function() {
 			// Animation complete.
 		  });
 		  
-
 		
 	});
+	
+	
 	
 		$("#jprev").click(function(){
 		
@@ -127,6 +136,61 @@ $(document).ready(function() {
 			
 		
 	});
+	
+	
+	$("#snxt").click(function(){
+		
+		scount=scount+1;
+		
+		  		  
+		 $('#shortp').fadeOut('fast', function() {
+		  	
+		  	$.get('commd/getshortp.php?count='+ scount, function(data) {
+		  		
+		  		  if(data!="")
+		  		 { 	$('#shortp').html(data);
+		  		  	$('#shortp').fadeIn('fast',function(){});
+		  		  }
+		  		  else
+		  		  {	scount = -1;
+		  		  	$("#jnxt").click();
+		  		  }
+		  	
+		  		 // alert(data);
+		  	});
+		  	// Animation complete.
+			}); 
+	
+		
+	});
+	
+	$("#sprev").click(function(){
+		
+		scount=scount-1;
+		
+		if(scount<0)
+			scount = 0;
+	
+		else
+		{
+			
+			$('#shortp').fadeOut('fast', function() {
+			
+			$.get('commd/getshortp.php?count='+ scount, function(data) {
+				
+				  $('#shortp').html(data);
+				  $('#shortp').fadeIn('fast',function(){});
+		
+			});
+			
+		});
+		
+		
+		}
+			
+		
+	});
+
 	
 	
 
