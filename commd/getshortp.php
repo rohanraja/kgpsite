@@ -4,7 +4,7 @@ include("connect_server.php");
 
 $count = $_GET['count'];
 
-$maxtakeoutrows = 4 ;
+$maxtakeoutrows = 2 ;
 
 $startindex = $count*$maxtakeoutrows ;
 

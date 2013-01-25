@@ -263,7 +263,7 @@ $.post("newsboa.php",{id:a},function(result){
 }
 
 
-var counter = {"students" : 0, "faculty" : 0, "alumni" : 0, "newsreleases" : 0, "iits" : 0};
+var counter = {"students" : 1, "faculty" : 1, "alumni" : 1, "newsreleases" : 1, "iits" : 1};
 
 var cnt ;
 

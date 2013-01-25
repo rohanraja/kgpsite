@@ -266,6 +266,19 @@ $("#databox").html("<img src ='css/loading.gif'>");
   $.post("newsboa.php",{id:0},function(result){
  //alert(result);
  $("#upperbox").append(result);
+ 
+ 
+ $('.cont').each(function (index, val) {
+ 
+ 	 console.log(parseInt($(val).attr('id')));
+ 	 imgindex.push(parseInt($(val).attr('id')));
+ 
+  });
+ 
+ 
+ change_img();
+ 
+ 
 });
 
 belowdata("students");
@@ -299,7 +312,7 @@ $.post("newsboa.php",{id:a},function(result){
 }
 
 
-var counter = {"students" : 0, "faculty" : 0, "alumni" : 0, "newsreleases" : 0, "iits" : 0};
+var counter = {"students" : 1, "faculty" : 1, "alumni" : 1, "newsreleases" : 1, "iits" : 1};
 
 var cnt ;
 
@@ -315,7 +328,7 @@ function belowdata(b)
 	isloading = 1;
 
 	
-	counter = {"students" : 0, "faculty" : 0, "alumni" : 0, "newsreleases" : 0, "iits" : 0};
+	counter ={"students" : 1, "faculty" : 1, "alumni" : 1, "newsreleases" : 1, "iits" : 1};
 
 	$.post("newssort.php",{name:b, count: 0 },function(result){
 	 	
@@ -436,9 +449,11 @@ include("../common/footer.php");
 	
 	//Auto-change-image
 	
-	var imgindex = [3,7,17,34,27];
-	
-	var indx = 0;
+	 var imgindex = [];
+	 
+	 var indx = 0;
+	 	
+
 	
 	var tmout;
 	
@@ -453,7 +468,6 @@ include("../common/footer.php");
 	
 	}	
 	
-	change_img();
 	
 	
 </script>
